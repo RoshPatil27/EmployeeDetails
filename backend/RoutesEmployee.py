@@ -3,6 +3,8 @@ from ControllersEmployee import (
     get_all_employees,
     get_employee_by_id,
     add_employee,
+    search_employee_by_id,
+    search_employee_by_name,
     update_employee,
     delete_employee
 )
@@ -32,5 +34,14 @@ def update_employee_route(employee_id):
 def delete_employee_route(employee_id):
     return jsonify(delete_employee(employee_id))
 
+
+@employee_routes.route('/search_employees_by_name/<name>', methods=['GET'])
+def search_employee_by_name_route(name):
+    return jsonify(search_employee_by_name(name))
+
+
+@employee_routes.route('/search_employees_by_id/<employee_id>', methods=['GET'])
+def search_employee_by_id_route(employee_id):
+    return jsonify(search_employee_by_id(employee_id))
 
                        
